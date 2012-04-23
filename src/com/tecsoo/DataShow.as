@@ -14,12 +14,14 @@
 		var bButton1:SimpleButton;
 		var bButton2:SimpleButton;
 		
-		public function DataShow()
+		public function DataShow(showNum:int)
 		{
 			var g = new com.tecsoo.FaderGain();
 			g.x = 50;
 			g.y = 200;
+			g.setPlace(showNum);
 			addChild(g);
+			
 			/*
 			var cbs = new CheckBoxsShow();
 			cbs.x = 20;	

@@ -59,7 +59,7 @@ package com.tecsoo
 			//var b:SimpleButton=e.target as SimpleButton;
 			//var _clicked:HoloEvent = new HoloEvent(HoloEvent.PACK_UP);
 			//dispatchEvent(_clicked);
-			ExternalInterface.call(recallFuncDoubleClick, subURI);//双击响应
+			ExternalInterface.call(recallFuncDoubleClick, subURI);
 			//ExternalInterface.call(recallFunc, "From Flash : " + subURI);
 			//navigateToURL(new URLRequest("http://www.holosoo.com/detail?an=" + subURI));
 		}

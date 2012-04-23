@@ -30,11 +30,12 @@ package com.tecsoo
 			//var w:String = stage.loaderInfo.parameters["flashWidth"]; 
 			//var h:String = stage.loaderInfo.parameters["flashHeight"]; 
 			
-			Security.allowDomain("www.holosoo.com", "www.tecsoo.com", "zym.net9.org", "219.223.186.38");
+			//Security.allowDomain("www.holosoo.com", "www.tecsoo.com", "localhost", "219.223.168.41", "219.223.168.41:8080");
+			Security.allowDomain("*");
 			
 			ExternalInterface.addCallback("showGraph", showGraph);
 			
-			var ds:DataShow = new DataShow();
+			var ds:DataShow = new DataShow((int)(showNum));
 			addChild(ds);
 			
 			var loader:URLLoader = new URLLoader(new URLRequest(dataURL));
