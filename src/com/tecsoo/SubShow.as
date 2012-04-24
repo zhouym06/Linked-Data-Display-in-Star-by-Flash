@@ -7,6 +7,8 @@ package com.tecsoo
 	import flash.external.*;
 	import flash.geom.Point;
 	import flash.net.*;
+	import flash.events.*;
+	import flash.utils.Timer;
 	import flash.text.TextField;
 	
 	public class SubShow extends MovieClip {
@@ -14,6 +16,7 @@ package com.tecsoo
 		var recallFuncClick:String;
 		var recallFuncDoubleClick:String;
 		var subURI:String;
+		var timer:Timer;
 		public function SubShow(recallFuncClick:String, recallFuncDoubleClick:String, showLength:String, subCenter:Point, subName:String, subURI:String) {
 			
 			this.recallFuncClick = recallFuncClick;
@@ -21,6 +24,9 @@ package com.tecsoo
 			this.subURI = subURI;
 			
 			var shortSub:String = HoloUtil.shortOf(subName, parseInt(showLength));
+			
+			timer = new Timer(250,1);
+			timer.addEventListener(TimerEvent.TIMER, timerHandler);
 			
 			var t:TextField = new TextField();
 			t.selectable = false;
@@ -53,15 +59,26 @@ package com.tecsoo
 			b.addEventListener(MouseEvent.MOUSE_OVER, onButton);
 			b.addEventListener(MouseEvent.MOUSE_OUT, outButton);
 			addChild(b);
+			
+			
 		}
 		
 		private function clickButton(e:MouseEvent):void {
-			//var b:SimpleButton=e.target as SimpleButton;
-			//var _clicked:HoloEvent = new HoloEvent(HoloEvent.PACK_UP);
-			//dispatchEvent(_clicked);
-			ExternalInterface.call(recallFuncDoubleClick, subURI);
-			//ExternalInterface.call(recallFunc, "From Flash : " + subURI);
-			//navigateToURL(new URLRequest("http://www.holosoo.com/detail?an=" + subURI));
+			if(timer.running){
+				//debugger.appendText("clicked Running (double)\n");
+				timer.stop();
+				ExternalInterface.call(recallFuncDoubleClick, subURI);//双击响应
+			}else{
+				//debugger.appendText("clicked Stopped (start)\n");
+				timer.start();
+			}
+			
+		}
+		
+		private function timerHandler(event:TimerEvent):void
+		{
+			//debugger.appendText("Time Out (click)\n");
+			ExternalInterface.call(recallFuncClick, subURI);//单击响应
 		}
 		
 		private function onButton(e:MouseEvent):void {
