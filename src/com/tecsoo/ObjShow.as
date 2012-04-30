@@ -1,33 +1,34 @@
 ﻿
 package com.tecsoo
 {
-	import flash.display.*;
-	import flash.geom.Point;
-	import flash.text.TextField;
-	import flash.events.*;
-	import flash.external.*;
-	import flash.net.*;
-	import flash.utils.Timer;
 	import com.tecsoo.*;
 	
+	import flash.display.*;
+	import flash.events.*;
+	import flash.external.*;
+	import flash.geom.Point;
+	import flash.net.*;
+	import flash.text.TextField;
+	import flash.utils.Timer;
+	
 	public class ObjShow extends MovieClip{
-		var recallFuncClick:String;
-		var recallFuncDoubleClick:String;
-		var serverIP:String;
+		private var recallFuncClick:String;
+		private var recallFuncDoubleClick:String;
+		private var serverIP:String;
 		
-		var subCenter:Point;
-		var objCenter:Point;
-		var objName:String;
-		var shortName:String;
-		var objRelation:String;
-		var shortRelation:String;
-		var objURI:String;
-		var objType:int;
+		private var subCenter:Point;
+		private var objCenter:Point;
+		private var objName:String;
+		private var shortName:String;
+		private var objRelation:String;
+		private var shortRelation:String;
+		private var objURI:String;
+		private var objType:int;
 		
-		var oTempTextField:TextField;
-		var button:SimpleButton;
+		private var oTempTextField:TextField;
+		private var button:SimpleButton;
 		
-		var timer:Timer;
+		private var timer:Timer;
 		
 		//var debugger:TextField;		
 //		var oTextField:TextField;
@@ -160,7 +161,7 @@ package com.tecsoo
 		}
 		public function getOTextField():TextField
 		{
-			var oTextField = new TextField();
+			var oTextField:TextField = new TextField();
 			oTextField.text = shortName;
 			oTextField.selectable = false;
 			oTextField.x = objCenter.x - 6 * shortName.length;
@@ -176,7 +177,7 @@ package com.tecsoo
 		}
 		public function getRTextField():TextField
 		{
-			var rTextField = new TextField();
+			var rTextField:TextField = new TextField();
 			rTextField.text = shortRelation;
 			rTextField.selectable = false;
 			rTextField.x = (objCenter.x + subCenter.x) / 2 - 6 * shortRelation.length;

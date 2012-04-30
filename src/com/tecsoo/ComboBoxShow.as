@@ -14,20 +14,17 @@ package com.tecsoo
 	{
 		
 		
-		var t:TextField;
-		var cbx:ComboBox;
+		private var t:TextField;
+		private var cbx:ComboBox;
 		
-		var names:Array = 
-					[{label:"同分类", data:"1"}, 
-					 {label:"同发明人", data:"2"}, 
-					 {label:"同申请人", data:"3"}, 
-					 {label:"同代理人", data:"4"}, 
-					 {label:"同代理机构", data:"5"} ];
+		private var names:Array;
 					
-		public function ComboBoxShow()
+		public function ComboBoxShow(lang:int)
 		{
+			names = HoloConstants.comboBoxContent[lang];
+			
 			t = new TextField();
-			t.text = "语义类型";
+			t.text = HoloConstants.comboBoxTitle[lang];
 			addChild(t);
 			
 			cbx = new ComboBox();
@@ -44,7 +41,7 @@ package com.tecsoo
 			
 		}
 		
-		function changeHandler(event:Event):void 
+		private function changeHandler(event:Event):void 
 		{
 			var d:int = ComboBox(event.target).selectedItem.data
 			var _changed:HoloEvent = new HoloEvent(HoloEvent.COMBO_CHANGED);

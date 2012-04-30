@@ -1,22 +1,24 @@
 ﻿package com.tecsoo
 {
 	import flash.display.*;
-	import flash.net.*;
-	import flash.external.*;
-	import flash.text.*;
-	import flash.geom.Point;
 	import flash.events.MouseEvent;
+	import flash.external.*;
+	import flash.geom.Point;
+	import flash.net.*;
+	import flash.text.*;
 	
 	public class DataShow extends MovieClip{
-		var subCenter:Point = new Point(350,300);
+		private var subCenter:Point = new Point(350,300);
 		
-		var holoShow:MovieClip;
-		var bButton1:SimpleButton;
-		var bButton2:SimpleButton;
+		private var holoShow:MovieClip;
+		private var bButton1:SimpleButton;
+		private var bButton2:SimpleButton;
 		
-		public function DataShow(showNum:int)
+		public function DataShow(showNum:int, local:String)
 		{
-			var g = new com.tecsoo.FaderGain();
+			var lang:int = HoloUtil.getLangIndex(local);
+			
+			var g:MovieClip = new com.tecsoo.FaderGain(lang);
 			g.x = 50;
 			g.y = 200;
 			g.setPlace(showNum);
@@ -27,7 +29,7 @@
 			cbs.x = 20;	
 			cbs.y = 100;
 			addChild(cbs);*/
-			var cbs = new ComboBoxShow();
+			var cbs:MovieClip = new ComboBoxShow(lang);
 			cbs.x = 20;	
 			cbs.y = 100;
 			addChild(cbs);
@@ -43,12 +45,28 @@
 			zoomInButton.scaleX = 0.5;
 			zoomInButton.scaleY = 0.5;
 			addChild(zoomInButton);
+			var zoomInT:TextField = new TextField();
+			zoomInT.text = HoloConstants.zoomInButton[lang];
+			zoomInT.x = zoomInButton.x - 15;
+			zoomInT.y = zoomInButton.y - 40;
+			addChild(zoomInT);
+			
+			
+			
 			var zoomOutButton:SimpleButton = new CircleBubbleGreenZoomOut();
 			zoomOutButton.x = 100;
 			zoomOutButton.y = 50;
 			zoomOutButton.scaleX = 0.5;
 			zoomOutButton.scaleY = 0.5;
 			addChild(zoomOutButton);
+			var zoomOutT:TextField = new TextField();
+			zoomOutT.text = HoloConstants.zoomOutButton[lang];
+			zoomOutT.x = zoomOutButton.x - 15;
+			zoomOutT.y = zoomOutButton.y - 40;
+			addChild(zoomOutT);
+			
+			
+			
 			zoomInButton.addEventListener(MouseEvent.CLICK, holoShow.zoomIn);
 			zoomOutButton.addEventListener(MouseEvent.CLICK, holoShow.zoomOut);
 			
@@ -59,7 +77,11 @@
 			bButton1.y = 50;
 			bButton1.addEventListener(MouseEvent.CLICK, holoShow.goBack);
 			addChild(bButton1);
-			
+			var back1T:TextField = new TextField();
+			back1T.text = HoloConstants.backButton[lang];
+			back1T.x = bButton1.x - 15;
+			back1T.y = bButton1.y - 40;
+			addChild(zoomOutT);
 			
 			bButton2 = new GelLeftGreen();
 			bButton2.x = 200;
@@ -67,8 +89,11 @@
 			bButton2.addEventListener(MouseEvent.CLICK, holoShow.goBack);
 			addChild(bButton2);
 			bButton2.visible = false;
-			
-			
+			var back2T:TextField = new TextField();
+			back2T.text = HoloConstants.backButton[lang];
+			back2T.x = bButton2.x - 15;
+			back2T.y = bButton2.y - 40;
+			addChild(back2T);
 			
 			cbs.addEventListener(HoloEvent.COMBO_CHANGED, holoShow.showTypeChanged);
 			g.getGButton().addEventListener(HoloEvent.FADER_MOVED, holoShow.moved);

@@ -1,11 +1,11 @@
 package com.tecsoo
 {
 	import flash.display.Sprite;
-	import flash.text.TextField;
-	import flash.net.*;
-	import flash.external.*;
-	import flash.system.Security;
 	import flash.events.Event;
+	import flash.external.*;
+	import flash.net.*;
+	import flash.system.Security;
+	import flash.text.TextField;
 	
 	[SWF(width="600", height="600", frameRate="12", backgroundColor="#C1E3FF")]
 	//[SWF(width=800, height=600, frameRate=12, backgroundColor=0xFFFFFF)]
@@ -25,6 +25,7 @@ package com.tecsoo
 			var showLength:String = stage.loaderInfo.parameters["showLength"];
 			var recallFunc1:String = stage.loaderInfo.parameters["recallFuncClick"]; 
 			var recallFunc2:String = stage.loaderInfo.parameters["recallFuncDoubleClick"]; 
+			var local:String = stage.loaderInfo.parameters["local"];
 			
 			
 			//var w:String = stage.loaderInfo.parameters["flashWidth"]; 
@@ -35,7 +36,7 @@ package com.tecsoo
 			
 			ExternalInterface.addCallback("showGraph", showGraph);
 			
-			var ds:DataShow = new DataShow((int)(showNum));
+			var ds:DataShow = new DataShow((int)(showNum), local);
 			addChild(ds);
 			
 			var loader:URLLoader = new URLLoader(new URLRequest(dataURL));
@@ -45,8 +46,7 @@ package com.tecsoo
 				var loader2:URLLoader = URLLoader(evt.target); 
 				var variables:URLVariables = new URLVariables(loader2.data); 
 				ds.renew(variables, showLength, recallFunc1, recallFunc2, ((int)(showNum)));
-				trace(loader2.data); 
-				
+				//trace(loader2.data); 
 			}
 			
 			

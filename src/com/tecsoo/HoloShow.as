@@ -12,26 +12,26 @@ package com.tecsoo
 	
 	
 	public class HoloShow extends MovieClip{
-		var recallFuncClick:String;
-		var recallFuncDoubleClick:String;
-		var showLength:String;
-		var subName:String;
-		var subCenter:Point;
-		var subURI:String;
-		var objNames:Array;
-		var objRelations:Array;
-		var objURIs:Array;
-		var objWeight:Array;
-		var objType:Array;
-		var objNumber:int;
+		private var recallFuncClick:String;
+		private var recallFuncDoubleClick:String;
+		private var showLength:String;
+		private var subName:String;
+		private var subCenter:Point;
+		private var subURI:String;
+		private var objNames:Array;
+		private var objRelations:Array;
+		private var objURIs:Array;
+		private var objWeight:Array;
+		private var objType:Array;
+		private var objNumber:int;
 		
-		var objs:Array;
-		var showType:int;
-		var lastNum:int;
-		var objInType:Array;
+		private var objs:Array;
+		private var showType:int;
+		private var lastNum:int;
+		private var objInType:Array;
 		
-		var pack:Boolean;
-		var history:Array;
+		private var pack:Boolean;
+		private var history:Array;
 		//var debugger:TextField;
 		
 		public function HoloShow()
@@ -104,7 +104,7 @@ package com.tecsoo
 				removeChildAt(0);
 			}
 
-			var subShow = new SubShow(recallFuncClick, recallFuncDoubleClick, showLength, subCenter, subName, subURI);
+			var subShow:MovieClip = new SubShow(recallFuncClick, recallFuncDoubleClick, showLength, subCenter, subName, subURI);
 			subShow.addEventListener(HoloEvent.PACK_UP, subClicked);
 			if(pack)
 			{
@@ -126,7 +126,7 @@ package com.tecsoo
 			var objCenters:Array = HoloUtil.getObjCenter(posHolder, subCenter, objWeight);
 			
 			objs = new Array();
-			for(var i:int = 0; i < count; i++)
+			for(i = 0; i < count; i++)
 			{
 				var oIndex:int = objInType[showType][i];
 				if(subURI.substr(0,15) != String(objURIs[oIndex]).substr(0,15))
@@ -138,7 +138,7 @@ package com.tecsoo
 			}
 			
 			
-			for each(var k in objs)
+			for each(var k:MovieClip in objs)
 			{
 				addChild(k.getOTempTextField());
 				addChild(k.getRTextField());

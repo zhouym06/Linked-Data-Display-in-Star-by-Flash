@@ -9,13 +9,13 @@
 	
 	public class FaderGain extends theFaderGain
 	{
-		var t:TextField;
-		var gButton:GainFader;
+		private var t:TextField;
+		private var gButton:GainFader;
 		//var tBox:FaderInputbox;
-		public function FaderGain() {
+		public function FaderGain(lang:int) {
 			
 			t = new TextField();
-			t.text = "关联数量";
+			t.text = HoloConstants.faderGainTitle[lang];
 			t.x = x - 20;
 			t.y = y - 20;
 			addChild(t);

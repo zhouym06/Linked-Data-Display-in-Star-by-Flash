@@ -1,22 +1,25 @@
 ﻿
 package com.tecsoo
 {
+	import fl.controls.Button;
+	
 	import flash.display.Graphics;
 	import flash.display.MovieClip;
+	import flash.display.SimpleButton;
+	import flash.events.*;
 	import flash.events.MouseEvent;
 	import flash.external.*;
 	import flash.geom.Point;
 	import flash.net.*;
-	import flash.events.*;
-	import flash.utils.Timer;
 	import flash.text.TextField;
+	import flash.utils.Timer;
 	
 	public class SubShow extends MovieClip {
-		var sTempTextField:TextField;
-		var recallFuncClick:String;
-		var recallFuncDoubleClick:String;
-		var subURI:String;
-		var timer:Timer;
+		private var sTempTextField:TextField;
+		private var recallFuncClick:String;
+		private var recallFuncDoubleClick:String;
+		private var subURI:String;
+		private var timer:Timer;
 		public function SubShow(recallFuncClick:String, recallFuncDoubleClick:String, showLength:String, subCenter:Point, subName:String, subURI:String) {
 			
 			this.recallFuncClick = recallFuncClick;
@@ -52,7 +55,7 @@ package com.tecsoo
 			
 			
 			
-			var b = new OvalButtonsRed();
+			var b:SimpleButton = new OvalButtonsRed();
 			b.x = subCenter.x;
 			b.y = subCenter.y;
 			b.addEventListener(MouseEvent.CLICK, clickButton);

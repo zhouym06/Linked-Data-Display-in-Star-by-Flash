@@ -7,12 +7,15 @@ package com.tecsoo
 	public class HoloUtil{
 		public function HoloUtil(){		}
 		
+		public static function getLangIndex(lan:String):int{
+			return HoloConstants.LanguageIndex.indexOf(lan,0);
+		}
 		public static function getObjCenter(number:int, subCenter:Point, weight:Array):Array
 		{
 			//To Do: weight
 			var result:Array = new Array();
 			var radius:Number = 200;
-			var ang = 360 / number;
+			var ang:int = 360 / number;
 			for(var i:int = 0; i < number; i++)
 			{
 				var p:Point = Point.polar(radius, (i / number) * 2 * Math.PI);

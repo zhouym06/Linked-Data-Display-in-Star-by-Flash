@@ -12,11 +12,11 @@
 //		private var _dispatcher:EventDispatcher;
 //		public static const BUTTON_MOVED:String = "moved";
 		
-		var top:Number;
-		var left:Number;
-		var right:Number;
-		var bottom:Number;
-		var level:Number;
+		private var top:Number;
+		private var left:Number;
+		private var right:Number;
+		private var bottom:Number;
+		private var level:Number;
 		//var t:TextField;
 
 		public function GainFader() {
@@ -25,7 +25,7 @@
 			//t.text = "inited";
 			//addChild(t);
 		}
-		public function initBoundary(){
+		public function  initBoundary():void{
 			this.top = this.y;
 			//this.top = this.y - 160;
 			this.left = this.x;
