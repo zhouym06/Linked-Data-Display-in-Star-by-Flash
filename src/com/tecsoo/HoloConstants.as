@@ -6,6 +6,7 @@ package com.tecsoo
 		public static const shortLen:int = 2;
 		public static var minObjNum:int = 3;
 		public static var maxObjNum:int = 20;
+		public static var seperator:String = " ";
 		
 		public static const LanguageIndex:Array = new Array(
 			"zh","us"
@@ -50,5 +51,10 @@ package com.tecsoo
 		{
 			minObjNum = mon;
 		}
+		public static function setSeperator(sep:String):void
+		{
+			seperator = sep;
+		}
+		
 	}
 }

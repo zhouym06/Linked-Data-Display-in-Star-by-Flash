@@ -51,11 +51,11 @@ package com.tecsoo
 			this.subCenter = subCenter;
 			this.subURI = subURI;
 			
-			objNames = objNamesArray.split(" ");
-			objRelations = objRelationsArray.split(" ");
-			objURIs = objURIsArray.split(" ");
-			objWeight = objWeightsArray.split(" ");
-			objType = objTypesArray.split(" ");
+			objNames = objNamesArray.split(HoloConstants.seperator);
+			objRelations = objRelationsArray.split(HoloConstants.seperator);
+			objURIs = objURIsArray.split(HoloConstants.seperator);
+			objWeight = objWeightsArray.split(HoloConstants.seperator);
+			objType = objTypesArray.split(HoloConstants.seperator);
 			
 			objNumber = objNames.length;
 			

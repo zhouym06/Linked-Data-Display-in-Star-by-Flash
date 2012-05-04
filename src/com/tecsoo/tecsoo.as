@@ -26,11 +26,15 @@ package com.tecsoo
 			var showLength:String = stage.loaderInfo.parameters["showLength"];
 			var recallFunc1:String = stage.loaderInfo.parameters["recallFuncClick"]; 
 			var recallFunc2:String = stage.loaderInfo.parameters["recallFuncDoubleClick"]; 
-			var local:String;
-			if(stage.loaderInfo.parameters.hasOwnProperty("local"))
+			var local:String;if(stage.loaderInfo.parameters.hasOwnProperty("local"))
 				local = stage.loaderInfo.parameters["local"];
 			else			
 				local = "zh";
+			
+			var seperator:String;
+			if(stage.loaderInfo.parameters.hasOwnProperty("seperator"))
+				HoloConstants.setSeperator(stage.loaderInfo.parameters["seperator"]);
+
 			
 			if(stage.loaderInfo.parameters.hasOwnProperty("maxObjNum"))
 				HoloConstants.setMaxObjNum(int(stage.loaderInfo.parameters["maxObjNum"]));
