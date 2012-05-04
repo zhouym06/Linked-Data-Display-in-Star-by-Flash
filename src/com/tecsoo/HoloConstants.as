@@ -4,8 +4,8 @@ package com.tecsoo
 	public class HoloConstants
 	{
 		public static const shortLen:int = 2;
-		public static const minObjNum:int = 3;
-		public static const maxObjNum:int = 20;
+		public static var minObjNum:int = 3;
+		public static var maxObjNum:int = 20;
 		
 		public static const LanguageIndex:Array = new Array(
 			"zh","us"
@@ -23,8 +23,7 @@ package com.tecsoo
 			[{label:"Same Category", data:"1"}, 
 				{label:"Same Inventor", data:"2"}, 
 				{label:"Same Applicant", data:"3"}, 
-				{label:"Same Agent", data:"4"}, 
-				{label:"Same Agency", data:"5"} ]
+				{label:"Same Agent", data:"4"} ]
 			);
 		
 		public static const faderGainTitle:Array = new Array(
@@ -43,5 +42,13 @@ package com.tecsoo
 		
 		
 		public function HoloConstants() {}
+		public static function setMaxObjNum(mon:int):void
+		{
+			maxObjNum = mon;
+		}
+		public static function setMinObjNum(mon:int):void
+		{
+			minObjNum = mon;
+		}
 	}
 }

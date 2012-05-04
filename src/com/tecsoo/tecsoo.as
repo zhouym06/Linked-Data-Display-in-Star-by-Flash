@@ -17,16 +17,27 @@ package com.tecsoo
 			/*
 			var t:TextField;
 			t = new TextField();
-			t.text = "aaa";
+			t.text = local;
 			addChild(t);
 			*/
+			
 			var showNum:String = stage.loaderInfo.parameters["showNum"];
 			var dataURL:String = stage.loaderInfo.parameters["dataURL"]; 
 			var showLength:String = stage.loaderInfo.parameters["showLength"];
 			var recallFunc1:String = stage.loaderInfo.parameters["recallFuncClick"]; 
 			var recallFunc2:String = stage.loaderInfo.parameters["recallFuncDoubleClick"]; 
-			var local:String = stage.loaderInfo.parameters["local"];
+			var local:String;
+			if(stage.loaderInfo.parameters.hasOwnProperty("local"))
+				local = stage.loaderInfo.parameters["local"];
+			else			
+				local = "zh";
 			
+			if(stage.loaderInfo.parameters.hasOwnProperty("maxObjNum"))
+				HoloConstants.setMaxObjNum(int(stage.loaderInfo.parameters["maxObjNum"]));
+
+			if(stage.loaderInfo.parameters.hasOwnProperty("minObjNum"))
+				HoloConstants.setMinObjNum(int(stage.loaderInfo.parameters["minObjNum"]));
+
 			
 			//var w:String = stage.loaderInfo.parameters["flashWidth"]; 
 			//var h:String = stage.loaderInfo.parameters["flashHeight"]; 

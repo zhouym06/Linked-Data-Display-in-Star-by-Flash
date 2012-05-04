@@ -86,10 +86,10 @@ package com.tecsoo
 		}
 		private function wComparer(a:int, b:int):int
 		{
-			if(objWeight[a] < objWeight[b])
+			if(Number(objWeight[a]) < Number(objWeight[b]))
 			{
 				return -1;
-			}else if(objWeight[a] > objWeight[b]){
+			}else if(Number(objWeight[a]) > Number(objWeight[b])){
 				return 1;
 			}else{
 				return 0;
