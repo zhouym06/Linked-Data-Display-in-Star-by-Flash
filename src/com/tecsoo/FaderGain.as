@@ -67,7 +67,7 @@
 		}
 		public function setPlace(showNum:int):void
 		{
-			gButton.y = this.y + 200 * (showNum - HoloConstants.minObjNum) / (HoloConstants.maxObjNum - HoloConstants.minObjNum);
+			gButton.y = this.y + 40 - 200 * (showNum - HoloConstants.minObjNum) / (HoloConstants.maxObjNum - HoloConstants.minObjNum);
 		}
 		public function getGButton():GainFader
 		{
