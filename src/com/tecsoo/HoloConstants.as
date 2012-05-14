@@ -9,7 +9,7 @@ package com.tecsoo
 		public static var seperator:String = " ";
 		
 		public static const LanguageIndex:Array = new Array(
-			"zh","us"
+			"zh_CN","en"
 		); 
 		public static const comboBoxTitle:Array = new Array(
 			"语义类型",

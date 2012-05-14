@@ -29,7 +29,7 @@ package com.tecsoo
 			var local:String;if(stage.loaderInfo.parameters.hasOwnProperty("local"))
 				local = stage.loaderInfo.parameters["local"];
 			else			
-				local = "zh";
+				local = "zh_CN";
 			
 			var seperator:String;
 			if(stage.loaderInfo.parameters.hasOwnProperty("seperator"))
